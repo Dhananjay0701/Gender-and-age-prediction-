@@ -38,8 +38,6 @@ def caffe_models():
 def video_detector(age_net, gender_net):
   font = cv2.FONT_HERSHEY_SIMPLEX
 
-def main():
-
   while True:
     ret, image = cap.read()
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml')
@@ -58,16 +56,19 @@ def main():
       gender_net.setInput(blob)
       gender_preds = gender_net.forward()
       gender = gender_list[gender_preds[0].argmax()]
+      print("Gender : " + gender)
 
       age_net.setInput(blob)
       age_preds = age_net.forward()
-      age = age_list[age_preds[0].agrmax()]
+      age = age_list[age_preds[0].argmax()]
+      print("Age Range: " + age)
+
 
     overlay_text = "%s %s" % (gender, age)
     cv2.putText(image, overlay_text, (x, y), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
     cv2.imshow('frame', image)
-    if cv2.waitKey(100000000) & 0xFF == ord('q'): 
+    if cv2.waitKey(1) & 0xFF == ord('q'): 
       break
       
 if __name__ == "__main__":
