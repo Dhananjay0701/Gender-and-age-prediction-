@@ -1,0 +1,4 @@
+Flask
+pafy
+opencv-python
+numpy
