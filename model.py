@@ -10,7 +10,6 @@ Original file is located at
 import cv2
 import numpy as np
 import pafy
-import time
 class video():
 
   def link(self, url):
@@ -74,8 +73,9 @@ class video():
         #time.sleep(0.1)
         if cv2.waitKey(1) & 0xFF == ord('q'): 
           break
-    
 
-
-
-
+"""if __name__ == "__main__":
+  v = video()
+  v.link('')
+  age_net, gender_net = v.caffe_models()
+  v.video_detector(age_net, gender_net)"""
