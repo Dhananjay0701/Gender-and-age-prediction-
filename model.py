@@ -28,9 +28,9 @@ class video():
 
   def caffe_models(self):
     
-    self.gender_net = cv2.dnn.readNet('D:\Codes\Deep_learning\Gender_age\Deploy\deploy_gender.prototxt', 'gender_net.caffemodel')
+    self.gender_net = cv2.dnn.readNet('deploy_gender.prototxt', 'gender_net.caffemodel')
 
-    self.age_net = cv2.dnn.readNet('D:\Codes\Deep_learning\Gender_age\Deploy\deploy_age.prototxt', 'age_net.caffemodel')
+    self.age_net = cv2.dnn.readNet('deploy_age.prototxt', 'age_net.caffemodel')
 
 
 
@@ -74,8 +74,9 @@ class video():
         if cv2.waitKey(1) & 0xFF == ord('q'): 
           break
 
-"""if __name__ == "__main__":
+if __name__ == "__main__":
+  youtube_link = ''
   v = video()
-  v.link('')
+  v.link(youtube_link)
   age_net, gender_net = v.caffe_models()
-  v.video_detector(age_net, gender_net)"""
+  v.video_detector(age_net, gender_net)
